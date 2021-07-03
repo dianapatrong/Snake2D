@@ -3,7 +3,7 @@ package snake.model;
 public class Meal extends GameObject{
     private int value;
 
-    public Meal(int x, int y, int value) {
+    public Meal(int value, int x, int y) {
         super(x, y);
         this.value = value;
     }
