@@ -2,6 +2,9 @@ package snake.model;
 
 public class Player {
 
+    public static final int AREA_WIDTH = 25;
+    public static final int AREA_HEIGHT = 25;
+
     private String name;
     private int score;
     private static Player instance;

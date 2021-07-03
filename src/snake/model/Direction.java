@@ -4,7 +4,7 @@ public enum Direction {
     UP,
     DOWN,
     LEFT,
-    RIGHT
+    RIGHT;
 
     public static boolean isOpposite(Direction target, Direction another){
         if ((target == UP && another == DOWN) || (target == DOWN && another == UP)){

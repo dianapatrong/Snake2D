@@ -10,6 +10,7 @@ public class Snake extends GameObject{
     public Snake(int x, int y, int length, Direction direction) {
         super(x, y);
         this.direction = direction;
+        this.alive = true;
         this.body = new LinkedList<>();
         for (int i=0; i< length; i++){
             addHead();
@@ -43,16 +44,20 @@ public class Snake extends GameObject{
 
     private void addHead(){
         if(this.direction == Direction.UP){
-            this.body.addFirst(new SnakePart(this.getX(), this.getY()-1));
+            int nextY = this.getY()+1 < 0 ? Player.AREA_HEIGHT-1 : this.getY() -1;
+            this.body.addFirst(new SnakePart(this.getX(), nextY));
         }
         else if (this.direction == Direction.DOWN){
-            this.body.addFirst(new SnakePart(this.getX(), this.getY()+1));
+            int nextY = this.getY()+1 >= Player.AREA_HEIGHT ? 0 : this.getY() +1;
+            this.body.addFirst(new SnakePart(this.getX(), nextY));
         }
         else if (this.direction == Direction.LEFT){
-            this.body.addFirst(new SnakePart(this.getX()-1, this.getY()));
+            int nextX = this.getX()-1 < 0 ? Player.AREA_WIDTH-1 : this.getX() -1;
+            this.body.addFirst(new SnakePart(nextX-1, this.getY()));
         }
         else {
-            this.body.addFirst(new SnakePart(this.getX()+1, this.getY()));
+            int nextX = this.getX()+1 >= Player.AREA_WIDTH ? 0 : this.getX() +1;
+            this.body.addFirst(new SnakePart(nextX, this.getY()));
         }
 
         this.setX(this.body.getFirst().getX());
@@ -85,5 +90,9 @@ public class Snake extends GameObject{
     public void eat(Meal target){
         Player p = Player.getInstance();
         p.setScore(p.getScore() + target.getValue());
+    }
+
+    public String toString(){
+        return "Snake(x="+ this.getX()+" , y="+this.getY()+")";
     }
 }
