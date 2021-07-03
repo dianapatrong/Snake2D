@@ -1,6 +1,8 @@
 package snake.model;
 
-public abstract class GameObject {
+import snake.view.Renderable;
+
+public abstract class GameObject implements Renderable {
     private int x;
     private int y;
 

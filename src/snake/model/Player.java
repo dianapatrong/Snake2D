@@ -1,6 +1,10 @@
 package snake.model;
 
-public class Player {
+import snake.view.Renderable;
+
+import java.awt.*;
+
+public class Player implements Renderable {
 
     public static final int AREA_WIDTH = 25;
     public static final int AREA_HEIGHT = 25;
@@ -41,6 +45,11 @@ public class Player {
         if (score >0){
             this.score = score;
         }
+
+    }
+
+    @Override
+    public void render(Graphics g) {
 
     }
 }

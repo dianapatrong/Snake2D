@@ -1,6 +1,10 @@
 package snake.model;
 
-public class Meal extends GameObject{
+import snake.view.Renderable;
+
+import java.awt.*;
+
+public class Meal extends GameObject implements Renderable {
     private int value;
 
     public Meal(int value, int x, int y) {
@@ -19,5 +23,11 @@ public class Meal extends GameObject{
     @Override
     public void update() {
 
+    }
+
+    @Override
+    public void render(Graphics g) {
+        g.setColor(Color.red);
+        g.fillRect(this.getX(), this.getX(), 25, 25);
     }
 }

@@ -1,5 +1,6 @@
 package snake.model;
 
+import java.awt.*;
 import java.util.LinkedList;
 
 public class Snake extends GameObject{
@@ -94,5 +95,12 @@ public class Snake extends GameObject{
 
     public String toString(){
         return "Snake(x="+ this.getX()+" , y="+this.getY()+")";
+    }
+
+    @Override
+    public void render(Graphics g) {
+        for (SnakePart: p: this.body){
+            p.render(g);
+        }
     }
 }
