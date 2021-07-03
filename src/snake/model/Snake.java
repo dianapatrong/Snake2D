@@ -55,6 +55,9 @@ public class Snake extends GameObject{
             this.body.addFirst(new SnakePart(this.getX()+1, this.getY()));
         }
 
+        this.setX(this.body.getFirst().getX());
+        this.setY(this.body.getFirst().getY());
+
     }
 
     private void removeLast(){
@@ -80,6 +83,7 @@ public class Snake extends GameObject{
     }
 
     public void eat(Meal target){
-
+        Player p = Player.getInstance();
+        p.setScore(p.getScore() + target.getValue());
     }
 }
