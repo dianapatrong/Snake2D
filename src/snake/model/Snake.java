@@ -99,7 +99,7 @@ public class Snake extends GameObject{
 
     @Override
     public void render(Graphics g) {
-        for (SnakePart: p: this.body){
+        for (SnakePart p: this.body){
             p.render(g);
         }
     }
