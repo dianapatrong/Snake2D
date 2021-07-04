@@ -29,6 +29,6 @@ public class Meal extends GameObject implements Renderable {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.red);
-        g.fillRect(this.getX()* RenderEngine.CELL_WIDTH, this.getX()*RenderEngine.CELL_HEIGHT, 25, 25);
+        g.fillRect(this.getX()* RenderEngine.CELL_WIDTH, this.getX()*RenderEngine.CELL_HEIGHT, RenderEngine.CELL_WIDTH, RenderEngine.CELL_HEIGHT);
     }
 }

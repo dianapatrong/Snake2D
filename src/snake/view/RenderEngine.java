@@ -1,5 +1,7 @@
 package snake.view;
 
+import snake.controller.Scene;
+import snake.model.GameObject;
 import snake.model.Player;
 
 import java.awt.*;
@@ -14,7 +16,7 @@ public class RenderEngine {
 
     public RenderEngine(int width, int height, String windowTitle){
         RenderEngine.CELL_WIDTH = width/ Player.AREA_WIDTH;
-        RenderEngine.CELL_HEIGHT = width/ Player.AREA_HEIGHT;
+        RenderEngine.CELL_HEIGHT = height/ Player.AREA_HEIGHT;
         this.window = new GameWindow(width, height, windowTitle);
         this.sceneToRender = new LinkedList<>();
     }

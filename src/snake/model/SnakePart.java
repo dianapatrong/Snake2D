@@ -18,6 +18,6 @@ public class SnakePart extends GameObject{
     @Override
     public void render(Graphics g) {
         g.setColor(Color.blue);
-        g.fillOval(this.getX()* RenderEngine.CELL_WIDTH, this.getY()*RenderEngine.CELL_HEIGHT, 25, 25);
+        g.fillOval(this.getX()* RenderEngine.CELL_WIDTH, this.getY()*RenderEngine.CELL_HEIGHT, RenderEngine.CELL_WIDTH, RenderEngine.CELL_HEIGHT);
     }
 }
