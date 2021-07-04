@@ -12,21 +12,7 @@ import java.util.logging.Logger;
 public class SnakeGame {
 
     public static void main(String[] args){
-        Snake s = new Snake(0,0,3, Direction.RIGHT);
-        LinkedList<Renderable> scene = new LinkedList<>();
-        scene.add(s);
-        RenderEngine re = new RenderEngine(800, 600, "Snake Game");
-        re.setSceneToRender(scene);
-        while(s.isAlive()){
-            s.update();
-            re.render();
-
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException ex){
-                Logger.getLogger(SnakeGame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
+        GameEngine ge = new GameEngine();
+        ge.start();
     }
 }

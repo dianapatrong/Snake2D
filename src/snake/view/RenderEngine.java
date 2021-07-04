@@ -6,11 +6,11 @@ import snake.model.Player;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.util.LinkedList;
+import java.util.List;
 
 public class RenderEngine {
     private GameWindow window;
-    private LinkedList<Renderable> sceneToRender;
+    private Scene sceneToRender;
     public static int CELL_WIDTH;
     public static int CELL_HEIGHT;
 
@@ -18,18 +18,17 @@ public class RenderEngine {
         RenderEngine.CELL_WIDTH = width/ Player.AREA_WIDTH;
         RenderEngine.CELL_HEIGHT = height/ Player.AREA_HEIGHT;
         this.window = new GameWindow(width, height, windowTitle);
-        this.sceneToRender = new LinkedList<>();
     }
 
     public GameWindow getGameWindow(){
         return this.window;
     }
 
-    public LinkedList<Renderable> getSceneToRender(){
-        return this.sceneToRender;
+    public List<GameObject> getSceneToRender(){
+        return this.sceneToRender.getSceneContent();
     }
 
-    public void setSceneToRender(LinkedList<Renderable> scene){
+    public void setSceneToRender(Scene scene){
         this.sceneToRender = scene;
     }
 
@@ -37,7 +36,7 @@ public class RenderEngine {
         this.window.clearScreen();
         BufferStrategy bs = this.window.getDrawGraphics();
         Graphics g = bs.getDrawGraphics();
-        for(Renderable r: this.sceneToRender){
+        for(Renderable r: this.sceneToRender.getSceneContent()){
             r.render(g);
         }
         bs.show();

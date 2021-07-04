@@ -19,7 +19,7 @@ public class Scene {
     }
 
     public List<GameObject> getSceneContent(){
-        return this.getSceneContent();
+        return this.content;
     }
 
     public void addObject(GameObject o){
